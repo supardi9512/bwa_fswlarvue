@@ -5,6 +5,7 @@
     <WomanShayna />
     <InstaShayna />
     <PartnerShayna />
+    <FooterShayna />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import HeroShayna from '@/components/HeroShayna.vue';
 import WomanShayna from '@/components/WomanShayna.vue';
 import InstaShayna from '@/components/InstaShayna.vue';
 import PartnerShayna from '@/components/PartnerShayna.vue';
+import FooterShayna from '@/components/FooterShayna.vue';
 
 export default {
   name: 'Home',
@@ -24,7 +26,8 @@ export default {
     HeroShayna,
     WomanShayna,
     InstaShayna,
-    PartnerShayna
+    PartnerShayna,
+    FooterShayna,
   }
 }
 </script>
