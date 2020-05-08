@@ -75,6 +75,7 @@
         </div>
     </section>
     <!-- Product Shop Section End -->
+    <RelatedShayna />
     <FooterShayna />
   </div>
 </template>
@@ -83,6 +84,7 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import HeaderShayna from '@/components/HeaderShayna.vue';
+import RelatedShayna from '@/components/RelatedShayna.vue';
 import FooterShayna from '@/components/FooterShayna.vue';
 
 import carousel from 'vue-owl-carousel';
@@ -91,6 +93,7 @@ export default {
   name: 'Product',
   components: {
     HeaderShayna,
+    RelatedShayna,
     FooterShayna,
     carousel
   },
