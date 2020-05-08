@@ -96,7 +96,18 @@ export default {
   },
   data() {
     return {
-      gambar_default: 'img/mickey1.jpg'
+      gambar_default: 'img/mickey1.jpg',
+      thumbs: [
+        'img/mickey1.jpg',
+        'img/mickey2.jpg',
+        'img/mickey3.jpg',
+        'img/mickey4.jpg'
+      ]
+    }
+  },
+  methods: {
+    changeImage(urlImage) {
+      this.gambar_default = urlImage;
     }
   }
 }
