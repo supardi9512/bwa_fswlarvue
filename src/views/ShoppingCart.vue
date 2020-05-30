@@ -36,7 +36,7 @@
                                         <tbody>
                                             <tr v-for="keranjang in keranjangUser" :key="keranjang.id">
                                                 <td class="cart-pic first-row">
-                                                    <img src="img/cart-page/product-1.jpg" />
+                                                    <img class="img-cart" :src="keranjang.photo" />
                                                 </td>
                                                 <td class="cart-title first-row text-center">
                                                     <h5>{{ keranjang.name }}</h5>
@@ -135,3 +135,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .img-cart {
+        width: 100px;
+        height: 100px;
+    }
+</style>
