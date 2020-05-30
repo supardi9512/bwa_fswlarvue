@@ -9,7 +9,7 @@
                             <div class="pi-pic">
                                 <img :src="itemProduct.galleries[0].photo" alt="" />
                                 <ul>
-                                    <li class="w-icon active">
+                                    <li @click="saveKeranjang(itemProduct.id, itemProduct.name, itemProduct.price, itemProduct.galleries[0].photo)" class="w-icon active">
                                         <a href="#"><i class="icon_bag_alt"></i></a>
                                     </li>
                                     <li class="quick-view">
@@ -52,7 +52,8 @@ export default {
     },
     data() {
         return {
-            products: []
+            products: [],
+            keranjangUser: []
         }
     },
     mounted() {
@@ -61,6 +62,20 @@ export default {
             .then(res => (this.products = res.data.data.data))
             // eslint-disable-next-line no-console
             .catch(err => console.log(err));
+    },
+    methods: {
+        saveKeranjang(idProduct, nameProduct, priceProduct, photoProduct) {
+            var productStored = {
+                'id': idProduct,
+                'name': nameProduct,
+                'price': priceProduct,
+                'photo': photoProduct
+            }
+            
+            this.keranjangUser.push(productStored);
+            const parsed = JSON.stringify(this.keranjangUser);
+            localStorage.setItem('keranjangUser', parsed);
+        }
     }
 };
 </script>
@@ -68,5 +83,8 @@ export default {
 <style scoped>
 .product-item {
     margin-right: 25px;
+}
+.pi-pic img {
+    height: 450px;
 }
 </style>

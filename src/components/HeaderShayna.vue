@@ -88,7 +88,7 @@ export default {
     methods: {
         removeItem(index) {
             // menghapus data
-            this.keranjangUser.splice(index);
+            this.keranjangUser.splice(index, 1);
             // menyimpan data terbaru
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem('keranjangUser', parsed);
