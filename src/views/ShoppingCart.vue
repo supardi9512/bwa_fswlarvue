@@ -90,7 +90,7 @@
                                         <li class="subtotal mt-3">No. Rekening <span>2208 1996 1403</span></li>
                                         <li class="subtotal mt-3">Nama Penerima <span>Shayna</span></li>
                                     </ul>
-                                    <a @click="checkout()" class="proceed-btn">I ALREADY PAID</a>
+                                    <a @click="checkout()" href="#" class="proceed-btn">I ALREADY PAID</a>
                                 </div>
                             </div>
                         </div>
