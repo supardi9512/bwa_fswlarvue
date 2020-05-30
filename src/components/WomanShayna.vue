@@ -84,6 +84,7 @@ export default {
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem('keranjangUser', parsed);
         
+            // refresh halaman
             window.location.reload();
         }
     }

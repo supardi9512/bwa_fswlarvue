@@ -42,7 +42,7 @@
                                                     <h5>{{ keranjang.name }}</h5>
                                                 </td>
                                                 <td class="p-price first-row">${{ keranjang.price }}</td>
-                                                <td @click="removeItem(keranjangUser.index)" class="delete-item">
+                                                <td @click="removeItem(keranjang.id)" class="delete-item">
                                                     <a href="#"><i class="material-icons">close</i></a>
                                                 </td>
                                             </tr>
@@ -146,12 +146,23 @@ export default {
                 // eslint-disable-next-line no-console
                 .catch(err => console.log(err));
         },
-        removeItem(index) {
-            // menghapus data
+        removeItem(idx) {
+            // cari tau id dari si item yang akan dihapus
+            let keranjangUserStorage = JSON.parse(localStorage.getItem('keranjangUser'));
+            let itemKeranjangUserStorage = keranjangUserStorage.map(itemKeranjangUserStorage => itemKeranjangUserStorage.id);
+            
+            // cocokkan idx item dengan id yang ada di storage
+            let index = itemKeranjangUserStorage.findIndex(id => id == idx);
+            
+            // hapus berdasarkan id
             this.keranjangUser.splice(index, 1);
-            // menyimpan data terbaru
+
+            // update ke keranjang localstorage
             const parsed = JSON.stringify(this.keranjangUser);
             localStorage.setItem('keranjangUser', parsed);
+        
+            // refresh halaman
+            window.location.reload();
         }
     },
     mounted() {
