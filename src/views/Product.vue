@@ -94,7 +94,7 @@ export default {
   },
   data() {
     return {
-      gambar_default: 'img/mickey1.jpg',
+      gambar_default: '',
       thumbs: [
         'img/mickey1.jpg',
         'img/mickey2.jpg',
@@ -107,6 +107,12 @@ export default {
   methods: {
     changeImage(urlImage) {
       this.gambar_default = urlImage;
+    },
+    setDataPicture(data) {
+        // replace object productDetails dengan data dari API
+        this.productDetails = data;
+        // replace value gambar default dengan data dari API (galleries)
+        this.gambar_default = data.galleries[0].photo;
     }
   },
   mounted() {
@@ -116,7 +122,7 @@ export default {
                 id: this.$route.params.id
             }
         })
-        .then(res => (this.productDetails = res.data.data))
+        .then(res => (this.setDataPicture(res.data.data)))
         // komentar di bawah ini untuk menonaktifkan eslint, agar dapat menggunakan console log id
         // eslint-disable-next-line no-console
         .catch(err => console.log(err));
