@@ -107,12 +107,16 @@ export default {
         'img/mickey2.jpg',
         'img/mickey3.jpg',
         'img/mickey4.jpg'
-      ]
+      ],
+      idProduct: this.$route.params.id
     }
   },
   methods: {
     changeImage(urlImage) {
       this.gambar_default = urlImage;
+      // komentar di bawah ini untuk menonaktifkan eslint, agar dapat menggunakan console log id
+      // eslint-disable-next-line no-console
+      console.log(this.idProduct);
     }
   }
 }
